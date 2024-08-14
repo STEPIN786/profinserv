@@ -3892,8 +3892,13 @@ h4 a{
 .news-block-one .inner-box{
   position: relative;
   display: block;
+  border: 1px solid #f1f1f1;
 }
-
+.blog-btn{
+    background: #0e76bc;
+    padding: 12px 20px;
+    border-radius: 5px;
+}
 .news-block-one .inner-box .image-box{
   position: relative;
   display: block;
@@ -3913,7 +3918,7 @@ h4 a{
 
 .news-block-one .inner-box .lower-content{
   position: relative;
-  padding-top: 32px;
+  padding: 32px 20px; 
 }
 
 .news-block-one .inner-box .lower-content .post-info{

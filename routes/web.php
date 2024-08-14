@@ -25,14 +25,16 @@ Route::get('/gallery', [App\Http\Controllers\Frontend\GalleryController::class, 
 Route::get('/testimonials', [App\Http\Controllers\Frontend\TestimonialsController::class, 'index'])->name('testimonials');
 Route::get('/services', [App\Http\Controllers\Frontend\ServicesController::class, 'index'])->name('services');
 
-Route::get('/blogsdetails', [App\Http\Controllers\Frontend\BlogsDetailsController::class, 'index'])->name('blogsdetails');
+// Route::get('/blogsdetails', [App\Http\Controllers\Frontend\BlogsDetailsController::class, 'index'])->name('blogsdetails');
 
 Route::get('/blog/{id}', [App\Http\Controllers\Frontend\BlogsController::class, 'detail'])->name('blog-detail');
 Route::get('/blog/catagory/{id}', [App\Http\Controllers\Frontend\BlogsController::class, 'catagory_list'])->name('blog-cat-list');
+
 Route::get('/blogs', [App\Http\Controllers\Frontend\BlogsController::class, 'index'])->name('blogs');
+Route::get('/blogsdetails', [App\Http\Controllers\Frontend\BlogsDetailsController::class, 'index'])->name('blogsdetails');
+
 Route::post('/blog/comment/store', [App\Http\Controllers\Frontend\BlogsController::class, 'comment_store'])->name('blog-comment-store');
-
-
+ 
 
 
 Route::get('/businesssdvisoryservices', [App\Http\Controllers\Frontend\BusinessAdvisoryServicesController::class, 'index'])->name('businesssdvisoryservices');

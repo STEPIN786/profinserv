@@ -11,4 +11,14 @@ class BlogsDetailsController extends Controller
     {
         return view('frontend.blogsdetails');   
     }
+    
+      public function detail($id)
+    {
+
+        return view('frontend.blogsdetails', compact(
+            'blog', 'recent_blogs', 'categories', 'comments'
+        ));  
+    }
+    
+    
 }

@@ -124,10 +124,20 @@
                                         
                                         
                
-                <li ><a  href="{{asset('/industries')}}">Industries</a></li>
+                                    <li ><a  href="{{asset('/industries')}}">Industries</a></li>
 
+                                    <li class=" dropdown">
+                                      <a href="{{asset('/blogs')}}">Blog</a>
+                                        <ul>
+                                            <li><a href="{{asset('/blogs')}}"> blogs </a></li>
+                                            <li><a href="{{asset('/blogsdetails')}}"> Blogs Details </a></li> 
+                                             
+                                           
+                                        </ul>
+                                    </li>
 
-<li ><a  href="{{asset('/blogs')}}">Blog</a></li> 
+<!--<li ><a  href="{{asset('/blogs')}}">Blog</a></li> -->
+<!--blog-details-->
                                                   
                                     <li><a  href="{{asset('/contact')}}">Contact</a></li>
                                 </ul>
