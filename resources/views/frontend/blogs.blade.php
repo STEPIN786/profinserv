@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="widget-content">
                                 @foreach($blogs as $k=>$bg)
-                                    @if($k > 3)
+                                    @if($k < 3)
                                         <div class="post">
                                             <figure class="post-thumb"><a href="{{ url ('/blog').'/'.$bg->id }}"><img src="{{ $bg->thumb_image }}" alt=""></a></figure>
                                             <h6><a href="{{ url ('/blog').'/'.$bg->id }}">{{$bg->title}}</a></h6>

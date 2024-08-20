@@ -136,12 +136,9 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="categories-list clearfix">
-                                        <li><a href="{{asset('/blog-details')}}">Business<span>(23)</span></a></li>
-                                        <li><a href="{{asset('/blog-details')}}">Search Optimization<span>(8)</span></a></li>
-                                        <li><a href="{{asset('/blog-details')}}">Financial Services<span>(64)</span></a></li>
-                                        <li><a href="{{asset('/blog-details')}}">Tax Reforms<span>(10)</span></a></li>
-                                        <li><a href="{{asset('/blog-details')}}">Digital Marketing<span>(47)</span></a></li>
-                                        <li><a href="{{asset('/blog-details')}}">Strategies<span>(2)</span></a></li>
+                                    @foreach($categories as $cat)
+                                        <li><a href="{{url('blog/catagory').'/'.$cat->id}}">{{ $cat->name }} <span>({{$cat->blog_count}})</span></a></li>
+                                    @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -150,24 +147,18 @@
                                     <h3>Recent Blog</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <div class="post">
-                                        <figure class="post-thumb"><a href="{{asset('/blog-details')}}"><img src="public/assets/images/news/post-1.jpg" alt=""></a></figure>
-                                        <h6><a href="{{asset('/blog-details')}}">Connecting People With Business</a></h6>
-                                        <div class="post-date"><i class="far fa-calendar-alt"></i>March 23, 2019</div>
-                                    </div>
-                                    <div class="post">
-                                        <figure class="post-thumb"><a href="{{asset('/blog-details')}}"><img src="public/assets/images/news/post-2.jpg" alt=""></a></figure>
-                                        <h6><a href="{{asset('/blog-details')}}">Digital Ideas - Make Money Easily</a></h6>
-                                        <div class="post-date"><i class="far fa-calendar-alt"></i>March 22, 2019</div>
-                                    </div>
-                                    <div class="post">
-                                        <figure class="post-thumb"><a href="{{asset('/blog-details')}}"><img src="public/assets/images/news/post-3.jpg" alt=""></a></figure>
-                                        <h6><a href="{{asset('/blog-details')}}">Action For Benefits Of Investments</a></h6>
-                                        <div class="post-date"><i class="far fa-calendar-alt"></i>March 21, 2019</div>
-                                    </div>
+                                @foreach($blogs as $k=>$bg)
+                                    @if($k < 3)
+                                        <div class="post">
+                                            <figure class="post-thumb"><a href="{{ url ('/blog').'/'.$bg->id }}"><img src="{{ $bg->thumb_image }}" alt=""></a></figure>
+                                            <h6><a href="{{ url ('/blog').'/'.$bg->id }}">{{$bg->title}}</a></h6>
+                                            <div class="post-date"><i class="far fa-calendar-alt"></i>{{ $bg->blog_date }}</div>
+                                        </div>
+                                    @endif
+                                @endforeach
                                 </div>
                             </div>
-                            <div class="sidebar-widget sidebar-gallery">
+                            <!-- <div class="sidebar-widget sidebar-gallery">
                                 <div class="widget-title">
                                     <h3>Image Gallery</h3>
                                 </div>
@@ -184,7 +175,7 @@
                                         <li><a href="public/assets/images/news/gallery-9.jpg" class="lightbox-image" data-fancybox="gallery"><img src="public/assets/images/news/gallery-9.jpg" alt=""></a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="sidebar-widget sidebar-tags">
                                 <div class="widget-title">
                                     <h3>Popular Tags</h3>

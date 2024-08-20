@@ -26,6 +26,10 @@ class BlogsController extends Controller
             $blog->blog_date = date('F d, Y', strtotime($blog->created_at));
         }
         $categories = Blogcategory::all();
+        foreach ($categories as $category) {
+            $blog_count = Blog::where('blog_cat_id', $category->id)->count();
+            $category->blog_count = $blog_count;
+        }
         return view('frontend.blogs', compact(
             'blogs' , 'categories'
         ));  
