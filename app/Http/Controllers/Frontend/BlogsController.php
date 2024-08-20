@@ -74,12 +74,12 @@ class BlogsController extends Controller
         $blog->blog_date = date('F d, Y', strtotime($blog->created_at));
 
 
-        $recent_blogs = DB::table('blog')
-                ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
-                ->where('blog.id','<>',$id)
-                ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
-                ->orderBy('blog.id', 'desc')
-                ->get();
+        $recent_blogs =  DB::table('blog')
+        ->where('blog.blog_cat_id','=',$blog->blog_cat_id)
+        ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
+        ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
+        ->limit(3)
+        ->get();
                 
         foreach ($recent_blogs as $recent_blog) {
             $recent_blog->img_name = "https://profinser.in/admin-main/public/upload/blog/thumbnail/".$recent_blog->img_name;
