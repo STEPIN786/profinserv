@@ -27,7 +27,7 @@
                     <div class="blog-details-content">
                         <figure class="image-box">
                             <img src="public/assets/images/news/news-20.jpg" alt="">
-                            <span class="category">business</span>
+                            <span class="category"> {{ $blog->bolgcatname }}</span>
                         </figure>
                         <div class="inner-box">
                             <ul class="post-info clearfix">
@@ -147,7 +147,7 @@
                                     <h3>Recent Blog</h3>
                                 </div>
                                 <div class="widget-content">
-                                @foreach($blogs as $k=>$bg)
+                                @foreach($recent_blogs as $k=>$bg)
                                     @if($k < 3)
                                         <div class="post">
                                             <figure class="post-thumb"><a href="{{ url ('/blog').'/'.$bg->id }}"><img src="{{ $bg->thumb_image }}" alt=""></a></figure>
