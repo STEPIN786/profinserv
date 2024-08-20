@@ -17,7 +17,9 @@ class BlogsController extends Controller
         $blogs = DB::table('blog')
         ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
         ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
+        ->orderBy('blog.id', 'desc')
         ->paginate(6);
+
         foreach ($blogs as $blog) {
             $blog->img_name = "https://profinser.in/admin-main/public/upload/blog/".$blog->img_name;
             $blog->thumb_image = "https://profinser.in/admin-main/public/upload/blog/".$blog->thumb_image;

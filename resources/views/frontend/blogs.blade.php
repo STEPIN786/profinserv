@@ -84,7 +84,7 @@
                                     <h3>Recent Blog</h3>
                                 </div>
                                 <div class="widget-content">
-                                @foreach($recent_blogs as $k=>$bg)
+                                @foreach($blogs as $k=>$bg)
                                     @if($k > 3)
                                         <div class="post">
                                             <figure class="post-thumb"><a href="{{ url ('/blog').'/'.$bg->id }}"><img src="{{ $bg->thumb_image }}" alt=""></a></figure>
