@@ -15,27 +15,28 @@ class BlogsController extends Controller
     public function index()
     {
         $blogs = DB::table('blog')
-                ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
-                ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
-                ->get();
+        ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
+        ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
+        ->paginate(6);
         foreach ($blogs as $blog) {
             $blog->img_name = "https://profinser.in/admin-main/public/upload/blog/".$blog->img_name;
             $blog->thumb_image = "https://profinser.in/admin-main/public/upload/blog/".$blog->thumb_image;
             $blog->blog_date = date('F d, Y', strtotime($blog->created_at));
         }
-
+        $categories = Blogcategory::all();
         return view('frontend.blogs', compact(
-            'blogs'
+            'blogs' , 'categories'
         ));  
     }
     
     public function catagory_list($id)
     {
         $blogs = DB::table('blog')
-                ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
-                ->where('blog.blog_cat_id','=',$id)
-                ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
-                ->get();
+            ->join('blog_category','blog_category.id','=','blog.blog_cat_id')
+            ->where('blog.blog_cat_id','=',$id)
+            ->select('blog.*','blog_category.id AS blogcatid','blog_category.name AS bolgcatname')
+            ->paginate(6);
+            
                 
         if ($blogs->count() == 0) {
             return redirect()->back();
@@ -48,7 +49,7 @@ class BlogsController extends Controller
         }
 
         return view('frontend.blogs', compact(
-            'blogs'
+            'blogs' , 'categories'
         ));  
     }
     

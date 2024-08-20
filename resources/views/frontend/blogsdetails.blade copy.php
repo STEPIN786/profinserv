@@ -37,16 +37,37 @@
                                 <li><i class="far fa-heart"></i><a href="{{asset('/blog-details')}}">1.5k Likes</a></li>
                             </ul>
                             <div class="text">
-                            {!! stripslashes($blog->description) !!}
-
+                                <h2>Taking Action For Benefits Of Business</h2>
+                                <p>Eabore etsu dolore magn aliqua enim veniam quis nostrud exercitas reprehenderit voluptate sed bvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</p>
+                                <h5>Eabore dolore magn aliqua enim veniam quis nostrud exercitas reprehenderit sint esse cillum dolore fugiat nulla pariatur excepteur sint.</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitm sed do eiusmod tempor incididunt labore ets magna aliquatenim minim veniam quis nostrud exercitation ullamco laboris nisut aliquip ex ea commod Duis aute irure dolorn reprehenderit voluptate velit esse. Excepteur sint uda occaecat cupidatat non pro sunt culpa qui officia deserunt mollit anim id est laborum sed utm pers piciatis unde omnis iste dolor nat ipsum diu enimery sed ipsum voluptatem.</p>
+                                <h3>How to become a top conference speaker?</h3>
+                                <p>Magna aliquatenim minim veniam quis nostrud <span>exercitation ullamco laboris nisut</span> aliquip exa commod Duis aute irure dolorn reprehenderit voluptate velit es. Excepteur sint uda occaecat cupidatat non proid sunt culpa qui officia deserunt mollit anim id est laborum sed utms.</p>
                             </div>
-                           
+                            <div class="two-column">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="public/assets/images/news/news-21.jpg" alt=""></figure>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="public/assets/images/news/news-22.jpg" alt=""></figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <p>Nostrud exercitation ullamco laboris nisut aliquip ex ea commod consequat. Duis aute irure dolorn prehes tate velit esse. Excepteur sint uda occaecat cupidatat non proident, como sunt culpa qui officia deserunt est laborum sed utms labore et dolore magna ipsum aliqua.</p>
+                                <blockquote>
+                                    <h5>Fugiat nulla pariatur excepteur sint occaecat cupidatat non proident euntin culp qui officia deserunt mollit anim idm esta laborum sed perspiciatis.</h5>
+                                    <span>Tim H. Berton</span>
+                                </blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elitm sed do eiusmod tempor incididunt ut labore magna aliquatenim minim veniam quis nostrud exercitation ullamco laboris nisut aliquip ex ea commod Duis aute irure dolorn reprehenderit voluptate velit esse.</p>
+                            </div>
                         </div>
                         <div class="post-share-option clearfix">
                             <ul class="post-tags pull-left clearfix">
-                            @foreach($categories as $cat)   
-                                <li><a href="{{ url('blog/catagory').'/'.$cat->id }}">{{ $cat->name }}</a></li>
-                            @endforeach
+                                <li><a href="{{asset('/blog-details')}}">Finance</a></li>
+                                <li><a href="{{asset('/blog-details')}}">Business</a></li>
+                                <li><a href="{{asset('/blog-details')}}">Event</a></li>
                             </ul>
                             <ul class="post-share pull-right clearfix">
                                 <li class="share">
@@ -66,7 +87,6 @@
                                 <h2>Comments</h2>
                             </div>
                             <div class="comment-box">
-                            @foreach($comments as $comment)
                                 <div class="comment">
                                     <figure class="thumb-box">
                                         <img src="public/assets/images/news/comment-1.jpg" alt="">
@@ -74,32 +94,47 @@
                                     <div class="comment-inner">
                                         <div class="comment-info clearfix">
                                             <div class="name pull-left">
-                                                <h5>{{ $comment->name }}</h5>
+                                                <h5>Robert Gates</h5>
                                             </div>
                                             <div class="info pull-right">
-                                                <span>{{ $comment->date }}</span>
+                                                <span>March 23, 2020</span>
                                                 <a href="{{asset('/blog-details')}}"><i class="fas fa-share"></i>Reply</a>
                                             </div>
                                         </div>
                                         <div class="text">
-                                            <p>{{ $comment->comment }}</p>
+                                            <p>Fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culp qui officia deserunt mollit anim id est laborum sed unt perspiciatis unde omnis iste.</p>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                            
+                                <div class="comment">
+                                    <figure class="thumb-box">
+                                        <img src="public/assets/images/news/comment-2.jpg" alt="">
+                                    </figure>
+                                    <div class="comment-inner">
+                                        <div class="comment-info clearfix">
+                                            <div class="name pull-left">
+                                                <h5>Amanda Tim</h5>
+                                            </div>
+                                            <div class="info pull-right">
+                                                <span>March 22, 2020</span>
+                                                <a href="{{asset('/blog-details')}}"><i class="fas fa-share"></i>Reply</a>
+                                            </div>
+                                        </div>
+                                        <div class="text">
+                                            <p>Fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culp qui officia deserunt mollit anim id est laborum sed unt perspiciatis unde omnis iste.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="comments-form-area">
                             <div class="group-title">
                                 <h2>Post a Reply</h2>
                             </div>
-                            <form action="{{route('blog-comment-store')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="blog_id" value="{{$blog->id}}" />
+                            <form action="{{asset('/blog-details')}}" method="post" class="comment-form default-form">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="comment" placeholder="Comment *"></textarea>
+                                        <textarea name="message" placeholder="Comment *"></textarea>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                         <input type="text" name="name" placeholder="Name *" required="">
