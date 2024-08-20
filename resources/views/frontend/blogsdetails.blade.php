@@ -26,7 +26,7 @@
                 <div class="col-lg-9 col-md-12 col-sm-12 content-side">
                     <div class="blog-details-content">
                         <figure class="image-box">
-                            <img src="public/assets/images/news/news-20.jpg" alt="">
+                            <img src="{{$blog->img_name}}" alt="">
                             <span class="category"> {{ $blog->bolgcatname }}</span>
                         </figure>
                         <div class="inner-box">
